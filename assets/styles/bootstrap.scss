@@ -1,0 +1,76 @@
+/* import what we need to override */
+@import "bootstrap/scss/_functions";
+@import "bootstrap/scss/_variables";
+@import "bootstrap/scss/vendor/rfs"; // responsive font size
+@import "bootstrap/scss/mixins/breakpoints"; // media-breakpoints
+
+/* set the overriding variables */
+
+$spacers: (
+    0: 0,
+    1: $spacer * .25,
+    2: $spacer * .5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+    6: $spacer * 3.75,
+    7: $spacer * 4.5,
+);
+
+
+$grid-row-columns: 7;
+
+$grid-breakpoints: (
+    xxxs: 0,
+    xxs: 370px,
+    xs: 568px,
+    sm: 667px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1440px,
+    xxxl: 1600px,
+);
+// $container-max-widths: (
+//   xxxs: 0,
+//   xxs: 320px,
+//   xs: 568px,
+//   sm: 667px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+//   xxl: 1440px,
+//   xxxl: 1600px
+// );
+
+
+
+// .rate-num {
+//     @include font-size(2.5rem);
+// }
+.rate-num {
+    @include media-breakpoint-up(xxl) {
+        font-size: 1.75rem;
+    }
+    @include media-breakpoint-down(xxl) {
+        font-size: rfs-fluid-value(1.5rem);
+    }
+    @include media-breakpoint-down(xl) {
+        font-size: rfs-fluid-value(2rem);
+    }
+    @include media-breakpoint-down(lg) {
+        font-size: rfs-fluid-value(1.75rem);
+    }
+    @include media-breakpoint-down(md) {
+        font-size: rfs-fluid-value(1.25rem);
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: rfs-fluid-value(6rem);
+    }
+    @include media-breakpoint-down(xxs) {
+        font-size: rfs-fluid-value(5rem);
+    }
+}
+
+/* override the !default vars with the values we set above */
+@import "bootstrap/scss/bootstrap";
